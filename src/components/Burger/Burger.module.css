@@ -2,10 +2,15 @@
     width: 100%;
     margin: auto;
     height: 250px;
-    overflow: hidden;
+    overflow: scroll;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+/** Make the burger scrollable but hide the scroll bar itself **/
+::-webkit-scrollbar {
+    display: none;
 }
 
 @media (min-width: 1000px) and (min-height: 700px){
