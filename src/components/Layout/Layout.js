@@ -1,8 +1,10 @@
 import React from 'react';
+import Toolbar from '../Navigation/Toolbar/Toolbar';
 import classes from './Layout.module.css';
 
 const layout = (props) => (
     <>
+        <Toolbar/>
         <div>
             Toolbar,
             SideDrawer,
