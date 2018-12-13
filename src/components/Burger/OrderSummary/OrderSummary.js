@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Button from '../../UI/Button/Button';
 
+/** This should be a functional component, don't need to be a class **/
 class OrderSummary extends Component {
 
     componentWillUpdate(){
