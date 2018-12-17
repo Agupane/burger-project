@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import  { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions';
+import { connect } from 'react-redux';
+
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../hoc/withErrorHandler/withErrorHandler';
+import axios from '../../axios-orders';
+import * as actionTypes from '../../store/action';
+
+
+
 const INGREDIENT_PRICES = {
     salad: 0.5,
     cheese: 0.4,
@@ -29,7 +33,7 @@ class BurgerBuilder extends Component {
     };
 
 
-    componentDidMount = async()=>{
+    componentDidMount = ()=>{
         console.log("[BurgerBuilder] componentDidMount");
 /*        let response = await axios.get("/ingredients.json");
         try{
@@ -161,7 +165,8 @@ class BurgerBuilder extends Component {
 
 const mapDispatchToProps = state =>{
     return {
-        ingredients: state.ingredients
+        ingredients: state.ingredients,
+        totalPrice: state.totalPrice
     };
 };
 
@@ -173,4 +178,4 @@ const mapStateToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler( BurgerBuilder, axios ));
